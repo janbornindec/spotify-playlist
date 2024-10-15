@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import styles from './Track.module.css';
 
 const Track = (props) => {
     const addTrack = useCallback((e) => {
@@ -25,12 +26,14 @@ const Track = (props) => {
     };
 
     return (
-        <div>
+        <div className={styles.track}>
             <h3>{props.track.name}</h3>
-            <p>
-                {props.track.artist} | {props.track.album}
-            </p>
-            { renderAction() }
+            <div className={styles.body}>
+                <p>
+                    {props.track.artist} | {props.track.album}
+                </p>
+                { renderAction() }
+            </div>
         </div>
     )
 }

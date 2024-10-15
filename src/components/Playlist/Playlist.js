@@ -1,5 +1,6 @@
 import React, {useCallback} from "react";
 import Tracklist from "../Tracklist/Tracklist";
+import styles from './Playlist.module.css'
 
 const Playlist = (props) => {
     const handleNameChange = useCallback(
@@ -10,14 +11,14 @@ const Playlist = (props) => {
     )
 
     return (
-        <div>
+        <div className={styles.playlist}>
             <input onChange={handleNameChange} defaultValue="New Playlist"/>
             <Tracklist
                 tracks={props.playlistTracks}
                 isRemoval={true}
                 onRemove={props.onRemove}
             />
-            <button onClick={props.onSave}>Save to Spotify</button>
+            <button className={styles.save} onClick={props.onSave}>Save to Spotify</button>
         </div>
     )
 }

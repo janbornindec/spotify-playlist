@@ -1,20 +1,23 @@
-
-
 .app {
   display: flex;
   flex-direction: column;
   text-align: center;
   color: white;
-  padding: 3rem;
+  margin: 3rem auto;
   align-items: center;
+  color: rgb(33, 11, 61);
 }
 
-h1 {
-  margin: 2rem;
+.app h1 {
+  color: rgb(243, 231, 255);
+}
+
+.app h2 {
+  color: rgb(243, 231, 255);
 }
 
 .lists {
-  width: 90%;
-  padding: 2rem;
   display: flex;
+  gap: 2rem;
+  width: 90%;
 }

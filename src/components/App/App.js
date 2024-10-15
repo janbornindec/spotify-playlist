@@ -9,7 +9,7 @@ import React, { useState, useCallback } from 'react';
 function App() {
   const [ searchResults, setSearchResults ] = useState([]);
   const [ playlistTracks, setPlaylistTracks ] = useState([]);
-  const [ playlistName, setPlaylistName ] = useState('');
+  const [ playlistName, setPlaylistName ] = useState('New Playlist');
 
   const search = useCallback((term) => {
     Spotify.search(term).then(setSearchResults);
@@ -24,15 +24,15 @@ function App() {
     if (playlistTracks.some((savedTrack) => savedTrack.id === track.id)) {
       return;
     } else {
-      //otherwise add the playlist
+      //otherwise add to the playlist
       setPlaylistTracks((prev) => [track, ...prev])
     }
   }, [playlistTracks]) //need to add dependency because we're using it to check if track exist
 
   const removeTrack = useCallback((track) => {
-    setPlaylistTracks((prev) => {
+    setPlaylistTracks((prev) => 
       prev.filter((currentTrack) => currentTrack.id !== track.id)
-    });
+    );
   }, []) //no need to add dependency because it relies on react state setter callback
 
   const savePlaylist = useCallback(() => {
@@ -41,7 +41,7 @@ function App() {
       //once the playlist is saved, reset playlistName and playlistTracks
       setPlaylistName("New Playlist");
       setPlaylistTracks([]);
-    })
+    });
   }, [playlistName, playlistTracks])
 
   return (
@@ -55,7 +55,7 @@ function App() {
           playlistTracks={playlistTracks}
           onNameChange={updatePlaylistName}
           onSave={savePlaylist}
-          onRemove={removeTrack}
+          onRemove={removeTrack}  
         />
       </div>
     </div>

@@ -12,7 +12,7 @@ const Spotify = {
 
         if (accessTokenMatch && expiresInMatch) {
             accessToken = accessTokenMatch[1]; // Get the access token
-            const expiresIn = parseInt(expiresInMatch[1]); // Expires in seconds
+            const expiresIn = Number(expiresInMatch[1]); // Expires in seconds
             window.setTimeout(() => accessToken = '', expiresIn * 1000); //reset access token after 
             window.history.pushState('Access Token', null, '/'); // Clear the URL parameters
             return accessToken;
@@ -23,7 +23,7 @@ const Spotify = {
     },
 
     search(term) {
-        const accessToken = Spotify.getAccessToken();
+        const accessToken = Spotify.getAccessToken()
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
@@ -44,26 +44,26 @@ const Spotify = {
         });
     },
 
-    savePlaylist(playlistName, trackUris) {
-        if (!playlistName || !trackUris.length) {
-            return;
+    savePlaylist(name, trackUris) {
+        if (!name || !trackUris.length) {
+            return Promise.reject('No name or tracks provided');
         }
 
         const accessToken = Spotify.getAccessToken();
+        if (!accessToken) {
+            return Promise.reject('No access token available'); // Exit early if the token is invalid
+        }
         const headers = { Authorization: `Bearer ${accessToken}` };
         let userId;
 
-        return fetch('https://api.spotify.com/v1/me', {
-            method: 'GET',
-            headers: headers
-        }
+        return fetch('https://api.spotify.com/v1/me', {headers: headers}
         ).then(response => response.json()
         ).then(jsonResponse => {
             userId = jsonResponse.id;
             return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
                 headers: headers,
                 method: 'POST',
-                body: JSON.stringify({name: playlistName})
+                body: JSON.stringify({name: name})
             }).then(response => response.json()
             ).then(jsonResponse => {
                 const playlistId = jsonResponse.id;
@@ -72,6 +72,9 @@ const Spotify = {
                     method: 'POST',
                     body: JSON.stringify({uris: trackUris})
                 });
+            })
+            .catch(error => {
+                console.error('Error creating or saving playlist:', error);
             });
         });
     }
