@@ -1,0 +1,4 @@
+.tracklist {
+    display: flex;
+    flex-direction: column;
+}
