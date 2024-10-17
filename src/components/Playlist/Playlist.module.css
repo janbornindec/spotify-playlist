@@ -1,12 +1,9 @@
 .playlist {
     padding: 1.5rem 0;
-    width: 50%;
-    background-color: rgba(58, 2, 131, 0.699);
-    border-radius: 2rem;
-    min-height: 100%;
+    height: 70vh;
     color: #ffffff;
-    max-height: 70vh;
     overflow: auto;
+    scrollbar-color: rgb(125, 29, 234) rgba(58, 2, 131, 0.699);
 }
 
 .playlist input {

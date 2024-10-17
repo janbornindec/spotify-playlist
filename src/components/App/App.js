@@ -54,14 +54,18 @@ function App() {
       <h1>JAMMMING</h1>
       <SearchBar onSearch={search}/>
       <div className={styles.lists}>
-        <SearchResults searchResults={searchResults} onAdd={addTrack}/>
-        <Playlist 
-          playlistName={playlistName}
-          playlistTracks={playlistTracks}
-          onNameChange={updatePlaylistName}
-          onSave={savePlaylist}
-          onRemove={removeTrack}  
-        />
+        <div className={styles.resultContainer}>
+          <SearchResults searchResults={searchResults} onAdd={addTrack}/>
+        </div>
+        <div className={styles.playlistContainer}>
+          <Playlist 
+            playlistName={playlistName}
+            playlistTracks={playlistTracks}
+            onNameChange={updatePlaylistName}
+            onSave={savePlaylist}
+            onRemove={removeTrack}  
+          />
+        </div>
       </div>
     </div>
   );

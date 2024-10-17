@@ -3,8 +3,10 @@
   flex-direction: column;
   text-align: center;
   color: white;
-  margin: 3rem auto;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100vw;
   color: rgb(33, 11, 61);
 }
 
@@ -20,4 +22,11 @@
   display: flex;
   gap: 2rem;
   width: 90%;
+}
+
+.resultContainer, .playlistContainer {
+  width: 50%;
+  background-color: rgba(58, 2, 131, 0.699);
+  border-radius: 2rem;
+  overflow: hidden;
 }

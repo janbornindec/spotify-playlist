@@ -1,9 +1,7 @@
 .searchResults {
-    width: 50%;
-    background-color: rgba(58, 2, 131, 0.699);
-    border-radius: 2rem;
     color: #ffffff;
     overflow: auto;
     max-height: 70vh;
     padding-bottom: 1.5rem;
+    scrollbar-color: rgb(125, 29, 234) rgba(58, 2, 131, 0.699);
 }
