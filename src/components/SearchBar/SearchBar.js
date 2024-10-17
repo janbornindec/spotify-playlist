@@ -18,7 +18,7 @@ const SearchBar = (props) => {
 
     return (
         <div className={styles.searchBar}>
-            <input placeholder='Enter track title here' value={searchTerm} onChange={onChangeHandler}/>
+            <input type="text" placeholder='Enter track title here' value={searchTerm} onChange={onChangeHandler}/>
             <button onClick={onClickHandler}>SEARCH</button>
         </div>
     )

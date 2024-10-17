@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../Spotify';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 function App() {
   const [ searchResults, setSearchResults ] = useState([]);
@@ -42,7 +42,12 @@ function App() {
       setPlaylistName("New Playlist");
       setPlaylistTracks([]);
     });
-  }, [playlistName, playlistTracks])
+  }, [playlistName, playlistTracks]);
+
+  //immediately retrieved access token as page load
+  useEffect(() => {
+    Spotify.getAccessToken(); // Start the flow when the component mounts
+  }, []); // Empty dependency array means this runs once when the component mounts
 
   return (
     <div className={styles.app}>
