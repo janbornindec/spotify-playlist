@@ -5,13 +5,20 @@
   color: white;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100%;
+  width: 100%;
   color: rgb(33, 11, 61);
+  gap: 2rem;
+  margin: 3rem auto;
 }
 
-.app h1 {
+.title {
   color: rgb(243, 231, 255);
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .app h2 {
@@ -24,9 +31,24 @@
   width: 90%;
 }
 
-.resultContainer, .playlistContainer {
+.leftContainer, .rightContainer {
   width: 50%;
   background-color: rgba(58, 2, 131, 0.699);
   border-radius: 2rem;
   overflow: hidden;
+  min-height: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: rgb(103, 10, 253);
+  box-shadow: 2px 2px 20px 0px rgba(199, 191, 213, 0.498);
+  width: 8rem;
+  height: 2rem;
+  color: white;
+  margin: 1.5rem 1rem;
+}
+
+.btn:hover {
+  background-color: rgb(135, 62, 253);
 }

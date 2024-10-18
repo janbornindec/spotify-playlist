@@ -18,7 +18,12 @@ const Playlist = (props) => {
                 isRemoval={true}
                 onRemove={props.onRemove}
             />
-            <button className={styles.save} onClick={props.onSave}>Save to Spotify</button>
+            {/*only render button when there's track in the list*/}
+            {props.playlistTracks.length > 0 && (
+                <button className={styles.save} onClick={props.onSave}>
+                    Save to Spotify
+                </button>
+            )}
         </div>
     )
 }

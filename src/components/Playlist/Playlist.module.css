@@ -1,6 +1,6 @@
 .playlist {
     padding: 1.5rem 0;
-    height: 70vh;
+    height: 50vh;
     color: #ffffff;
     overflow: auto;
     scrollbar-color: rgb(125, 29, 234) rgba(58, 2, 131, 0.699);
@@ -28,6 +28,7 @@
     width: 8rem;
     height: 2rem;
     color: white;
+    justify-self: center;
 }
 
 .playlist button:hover {

@@ -20,6 +20,7 @@
     box-shadow: 2px 2px 20px 0px rgba(199, 191, 213, 0.498);
     width: 2rem;
     height: 2rem;
+    color: white;
 }
 
 .track button:hover {
