@@ -1,0 +1,50 @@
+.playlistList {
+    color: white;
+    padding: 1.5rem 0;
+    overflow: auto;
+    height: 50vh;
+}
+
+.tracklists {
+    padding-top: 1rem;
+}
+
+.playlistList h2 {
+    padding-bottom: 1.5rem;
+    margin: 0;
+}
+
+.playlistList h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.playlist {
+    background-color: rgba(90, 0, 208, 0.699);
+}
+
+.playlistList li {
+    border: 1px rgb(171, 107, 254) solid;
+    list-style-type: none;
+    padding: 1.5rem 0;
+    cursor: pointer;
+}
+
+.playlistList li:hover {
+    background-color: rgba(111, 0, 255, 0.699);
+}
+
+.playlistList ul {
+    padding: 0;
+    margin: 0;
+}
+
+.save {
+    margin-top: 2rem;
+    background-color: rgb(103, 10, 253);
+    box-shadow: 2px 2px 20px 0px rgba(199, 191, 213, 0.498);
+    width: 8rem;
+    height: 2rem;
+    color: white;
+    justify-self: center;
+}
