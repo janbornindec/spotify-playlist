@@ -16,7 +16,7 @@ function App() {
   const [ showNewPlaylist, setShowNewPlaylist ] = useState(false); // To control visibility
   const [ showExistingPlaylists, setShowExistingPlaylists ] = useState(false); // To control visibility
   const [ removedTrackUris, setRemovedTrackUris ] = useState([]); // New state to track removed tracks
-  const [tempPlaylistTracks, setTempPlaylistTracks] = useState([]); // Temporary tracks state
+  const [ tempPlaylistTracks, setTempPlaylistTracks ] = useState([]); // Temporary tracks state
 
   const handleRefresh = () => {
     window.location.reload();

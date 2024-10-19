@@ -4,15 +4,15 @@ import Tracklist from "../Tracklist/Tracklist";
 
 const PlaylistList = (props) => {
     // State to manage which playlists are expanded
-    const [expandedPlaylists, setExpandedPlaylists] = useState({});
+    const [expandedPlaylistId, setExpandedPlaylistId] = useState(null);
 
     // Function to toggle playlist expansion
     const togglePlaylist = (id) => {
-        setExpandedPlaylists(prev => ({
-            ...prev,
-            [id]: !prev[id] // Toggle the boolean value for the clicked playlist
-        }));
-        props.handleClick(id);
+        setExpandedPlaylistId(prev => prev === id ? null : id);
+        // Fetch tracks if we are expanding the playlist
+        if (expandedPlaylistId !== id) {
+            props.handleClick(id);
+        }
     };
 
     return (
@@ -25,7 +25,7 @@ const PlaylistList = (props) => {
                             <h3 className={styles.playlistTitle} onClick={()=>togglePlaylist(playlist.id)}>
                                 {playlist.name}
                             </h3> 
-                            { expandedPlaylists[playlist.id] && (
+                            { expandedPlaylistId === playlist.id && (
                                 <div className={styles.tracklists}>
                                     <Tracklist
                                         tracks={props.playlistListTracks}
